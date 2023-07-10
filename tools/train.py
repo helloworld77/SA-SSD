@@ -1,7 +1,9 @@
 from __future__ import division
 import argparse
 import sys
-sys.path.append('/home/billyhe/SA-SSD')
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+import torch
 from mmcv.parallel import MMDataParallel, MMDistributedDataParallel
 from mmdet.datasets import build_dataloader
 from tools.env import get_root_logger, init_dist, set_random_seed
@@ -75,7 +77,7 @@ def main():
         cfg.model, train_cfg=cfg.train_cfg, test_cfg=cfg.test_cfg)
 
     if distributed:
-        model = MMDistributedDataParallel(model.cuda())
+        model = MMDistributedDataParallel(model.cuda(), device_ids=[torch.cuda.current_device()])
     else:
         model = MMDataParallel(model, device_ids=range(cfg.gpus)).cuda()
 

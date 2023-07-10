@@ -271,9 +271,9 @@ def create_groundtruth_database(data_path,
 
 
 if __name__ == '__main__':
-    create_kitti_info_file('/home/billyhe/data/KITTI')
-    create_reduced_point_cloud('/home/billyhe/data/KITTI')
+    # create_kitti_info_file('dataset/KITTI')
+    # create_reduced_point_cloud('dataset/KITTI')
 
-    create_groundtruth_database(data_path='/home/billyhe/data/KITTI', \
-                                info_path='/home/billyhe/data/KITTI/kitti_infos_trainval.pkl', \
-                                db_info_save_path='/home/billyhe/data/KITTI/kitti_dbinfos_trainval.pkl')
+    create_groundtruth_database(data_path='dataset/KITTI', \
+                                info_path='dataset/KITTI/kitti_infos_train.pkl', \
+                                db_info_save_path='dataset/KITTI/kitti_dbinfos_train.pkl')

@@ -364,7 +364,7 @@ class SSDRotateHead(nn.Module):
             # add ground-truth
             if gt_boxes is not None:
                 box_preds = torch.cat([gt_boxes, box_preds],0)
-                top_labels = torch.cat([gt_lbls, top_labels],0)
+                top_labels = torch.cat([gt_lbls.cuda(), top_labels.cuda()],0)
 
             anchor_labels.append(top_labels)
             guided_anchors.append(box_preds)
