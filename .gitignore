@@ -24,3 +24,5 @@
 
 # Specific directory #
 saved_model_vehicle/
+tools/__pycache__/
+dataset/
